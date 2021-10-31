@@ -1,0 +1,20 @@
+# This workflow build and publish NPM artifacts
+name: Test hardhat runs
+
+on:
+  push:
+    branches:
+      - "test-hardhat-ci"
+
+jobs:
+  npm-build-artifacts:      
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Hardhat tests
+        run: |
+          git submodule update --init --recursive
+          npm ci
+          cd ./submodules/ERC725/implementations && npm install
+          npx hardhat compile
+          npm run test
