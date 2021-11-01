@@ -11,10 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Hardhat tests
-        run: |
+
+      - name: setup
+        run: |-
           git submodule update --init --recursive
           npm ci
           cd ./submodules/ERC725/implementations && npm install
-          npx --yes hardhat compile --if-present
+
+      - name: Hardhat build and test
+        run: |
+          pwd
+          npm run build --if-present
           npm run test
