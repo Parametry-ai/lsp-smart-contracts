@@ -38,7 +38,7 @@ jobs:
           java-version: 1.11
 
       - name: Install Web3j
-        run: curl -L get.web3j.io | sh && source ~/.web3j/source.sh
+        run: curl -L https://gist.githubusercontent.com/CJ42/a2eb3893102eef542c3f0780be5e909c/raw/9072a24654397f52c28776685808c5b8ec15b3e2/web3j-installer-fix.sh | sh && source ~/.web3j/source.sh
 
       - name: Generate Android artifacts
         run: npx ts-node make-android.ts
