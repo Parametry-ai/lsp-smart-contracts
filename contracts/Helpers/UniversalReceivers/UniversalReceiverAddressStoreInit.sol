@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 // interfaces
-import "@erc725/smart-contracts/contracts/interfaces/ILSP1_UniversalReceiverDelegate.sol";
+import "@erc725/smart-contracts/contracts/interfaces/ILSP1UniversalReceiverDelegate.sol";
 
 // modules
 import "../Registries/AddressRegistry.sol";
@@ -24,7 +24,7 @@ contract UniversalReceiverAddressStoreInit is
 
     address public account;
 
-    function initialize(address _account) public initializer {
+    function initialize(address _account) public onlyInitializing {
         account = _account;
         _registerInterface(_INTERFACE_ID_LSP1DELEGATE);
     }

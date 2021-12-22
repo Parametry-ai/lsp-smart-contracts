@@ -8,8 +8,8 @@ import "../LSP6KeyManager/ILSP6KeyManager.sol";
 import "../LSP7DigitalAsset/ILSP7DigitalAsset.sol";
 import "../LSP8IdentifiableDigitalAsset/ILSP8IdentifiableDigitalAsset.sol";
 import "@erc725/smart-contracts/contracts/interfaces/IERC1271.sol";
-import "@erc725/smart-contracts/contracts/interfaces/ILSP1_UniversalReceiver.sol";
-import "@erc725/smart-contracts/contracts/interfaces/ILSP1_UniversalReceiverDelegate.sol";
+import "@erc725/smart-contracts/contracts/interfaces/ILSP1UniversalReceiver.sol";
+import "@erc725/smart-contracts/contracts/interfaces/ILSP1UniversalReceiverDelegate.sol";
 
 // constants
 import "../LSP1UniversalReceiver/LSP1Constants.sol";
