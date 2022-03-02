@@ -4706,7 +4706,7 @@ describe("SIGN", () => {
     expect(result).toEqual(ERC1271.MAGIC_VALUE);
   });
 
-  it("Should fail when verifying signature from address with no SIGN permission", async () => {
+  it("Should return FAILVALUE when verifying signature from address with no SIGN permission", async () => {
     const dataToSign = "0xabcdabcd";
     const messageHash = ethers.utils.hashMessage(dataToSign);
     const signature = await thirdParty.signMessage(dataToSign);
@@ -4716,5 +4716,17 @@ describe("SIGN", () => {
       signature
     );
     expect(result).toEqual(ERC1271.FAIL_VALUE);
+  });
+
+  it("Failing when verifying a signature for an address with no permission at all (no SIGN permission)", async () => {
+    const dataToSign = "0xabcdabcd";
+    const messageHash = ethers.utils.hashMessage(dataToSign);
+    // random account singing (accounts[9])
+    const signature = await accounts[9].signMessage(dataToSign);
+
+    await expect(
+          keyManager.connect(accounts[9]).isValidSignature(messageHash,signature)
+        ).toBeRevertedWith("LSP6Utils:getPermissionsFor: no permissions set for this address");
+ 
   });
 });
