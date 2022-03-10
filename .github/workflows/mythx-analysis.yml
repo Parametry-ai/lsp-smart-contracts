@@ -32,10 +32,8 @@ jobs:
 
       # - name: Install pip3
       #   run: python -m pip install --upgrade pip
-      - name: Setup virtual environnement
-        run: |
-          python -m virtualenv venv
-          . venv/bin/activate
+      - uses: syphar/restore-virtualenv@v1
+        id: cache-virtualenv
 
       - name: Install mythx CLI
         run: |
