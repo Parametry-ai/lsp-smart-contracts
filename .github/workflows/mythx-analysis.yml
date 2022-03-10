@@ -30,8 +30,8 @@ jobs:
         run: |
           npm ci
 
-      - name: Install pip3
-        run: python3 -m pip install --upgrade pip
+      # - name: Install pip3
+      #   run: python3 -m pip install --upgrade pip
 
       - name: Install mythx CLI
         run: |
