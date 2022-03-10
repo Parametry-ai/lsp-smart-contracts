@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
-          cache: "pip3"
+          cache: "pip"
 
       - name: Install node dependencies
         run: |
@@ -36,10 +36,10 @@ jobs:
 
       - name: Install mythx CLI
         run: |
-          pip3 install mythx-cli
+          pip install mythx-cli
 
       - name: Install solc-select
-        run: pip3 install solc-select
+        run: pip install solc-select
 
       - name: Use Solidity compiler 0.8.7
         run: |
