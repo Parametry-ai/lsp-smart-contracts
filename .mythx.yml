@@ -45,3 +45,4 @@ analyze:
     - contracts/LSP9Vault/LSP9VaultInit.sol
     # Legacy L14
     # ------------------
+    - contracts/Legacy/UniversalReceiverAddressStore.sol
